@@ -164,3 +164,84 @@
   color: #2b3a55;
   letter-spacing: 0.5px;
 }
+/* ===== Calendar Styling ===== */
+.calendar-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.react-calendar {
+  border: none !important;
+  border-radius: 16px !important; /* Round the whole calendar */
+  overflow: hidden; /* makes the round edges visible */
+  background: #fdfdfd;
+  box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Calendar navigation (month bar) */
+.react-calendar__navigation {
+  border-radius: 12px 12px 0 0;
+  background: #3498db;
+  color: #fff;
+}
+
+.react-calendar__navigation button {
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Days */
+.react-calendar__tile {
+  border-radius: 10px;
+  padding: 12px;
+  transition: all 0.2s;
+}
+
+.react-calendar__tile--active {
+  background: #3498db !important;
+  color: white !important;
+  border-radius: 10px;
+}
+
+.react-calendar__tile:hover {
+  background: #ecf6ff;
+  border-radius: 10px;
+}
+
+/* ===== Task Input Container ===== */
+.task-input-container {
+  margin-top: 25px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-input-container input,
+.task-input-container textarea,
+.task-input-container button {
+  border-radius: 10px;
+}
+
+.task-input-container button {
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.task-input-container button:hover {
+  opacity: 0.9;
+}
