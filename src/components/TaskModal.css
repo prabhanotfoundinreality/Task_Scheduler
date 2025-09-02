@@ -1,0 +1,74 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal h3 {
+  margin-top: 0;
+}
+
+.modal-task {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-task .notes {
+  font-size: 0.85em;
+  color: #555;
+}
+
+.actions {
+  margin-top: 6px;
+}
+
+.actions button {
+  margin-right: 6px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background: #4caf50;
+  color: white;
+}
+
+.actions button:last-child {
+  background: #f44336;
+  color: white;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.close-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}

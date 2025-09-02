@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useEffect, useState } from "react";
+import { supabase } from "./supabaseClient";  
+import CalendarView from "./components/CalendarView";
+
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+
+  
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  async function fetchTasks() {
+    const { data, error } = await supabase
+      .from("tasks")
+      .select("*")
+      .order("date", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching tasks:", error.message);
+    } else {
+      setTasks(data);
+    }
+  }
+
+  // Add new task
+  async function handleAdd(task) {
+    const { data, error } = await supabase
+      .from("tasks")
+      .insert([task])
+      .select();
+
+    if (error) {
+      console.error("Error inserting task:", error.message);
+    } else {
+      setTasks((prev) => [...prev, ...data]); 
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="p-6 space-y-6">
+      
+      <CalendarView tasks={tasks} />
+    </div>
+  );
 }
-
-export default App
